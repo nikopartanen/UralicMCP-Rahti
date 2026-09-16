@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends nginx \
 RUN pip install --no-cache-dir "mcp<2" uralicNLP
 RUN python -m uralicNLP.download --languages kpv
 
+COPY index.html /app/static/index.html
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN chgrp -R 0 /app /usr/local/lib/python3.11 /etc/nginx /var/lib/nginx /var/log/nginx \
