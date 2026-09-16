@@ -23,3 +23,9 @@ oc get pods
 curl https://uralicmcp-rahti.rahtiapp.fi/mcp
 ```
 A `406 Not Acceptable` JSON response (not an HTML "Application is not available" page) means it's working.
+
+After editing files in GitHub, one can do:
+
+```bash
+oc start-build uralicmcp-rahti --follow
+```
