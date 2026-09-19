@@ -29,3 +29,17 @@ After editing files in GitHub, one can do:
 ```bash
 oc start-build uralicmcp-rahti --follow
 ```
+
+We also had to increase the memory limit both for build and deployment. Otherwise the translation lookups were causing an out of memory error. The convention how the Komi model is now downloaded in the Dockerfile is probably not ideal:
+
+```bash
+oc patch bc/uralicmcp-rahti -p '{"spec":{"resources":{"limits":{"memory":"4Gi"},"requests":{"memory":"2Gi"}}}}'
+oc start-build uralicmcp-rahti --follow
+oc set resources deployment/uralicmcp-rahti --limits=memory=4Gi --requests=memory=2Gi
+```
+
+## TODO
+
+- How are we dealing with model updates? Can they be automatically updated every night if there have been changes?
+- Apparently UralicMCP does not currently support Constraint Grammar? How should we handle this?
+- 
