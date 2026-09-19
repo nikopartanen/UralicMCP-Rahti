@@ -1,6 +1,8 @@
 ## UralicMCP on Rahti
 
-Test setup for [UralicMCP](https://github.com/mikahama/uralicNLP/wiki/UralicMCP) in CSC's Rahti environment.
+Test setup for [UralicMCP](https://github.com/mikahama/uralicNLP/wiki/UralicMCP) in CSC's Rahti environment. A running version can be used from:
+
+[https://uralicmcp-rahti.rahtiapp.fi/mcp](https://uralicmcp-rahti.rahtiapp.fi/mcp)
 
 **Deploy:**
 ```bash
@@ -42,4 +44,4 @@ oc set resources deployment/uralicmcp-rahti --limits=memory=4Gi --requests=memor
 
 - How are we dealing with model updates? Can they be automatically updated every night if there have been changes?
 - Apparently UralicMCP does not currently support Constraint Grammar? How should we handle this?
-- 
+- Landing page is not now where it should. There should be some explanation about what this is and who to contact etc.
