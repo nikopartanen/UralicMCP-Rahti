@@ -32,12 +32,12 @@ After editing files in GitHub, one can do:
 oc start-build uralicmcp-rahti --follow
 ```
 
-We also had to increase the memory limit both for build and deployment. Otherwise the translation lookups were causing an out of memory error. The convention how the Komi model is now downloaded in the Dockerfile is probably not ideal:
+We also had to increase the memory limit both for build and deployment. Otherwise the translation lookups were causing an out of memory error. The convention how the Komi model is now downloaded in the Dockerfile is probably not ideal. The current memory settings should be enough also for the Skolt Saami model that was giving errors earlier.
 
 ```bash
-oc patch bc/uralicmcp-rahti -p '{"spec":{"resources":{"limits":{"memory":"4Gi"},"requests":{"memory":"2Gi"}}}}'
+oc patch bc/uralicmcp-rahti -p '{"spec":{"resources":{"limits":{"memory":"6Gi"},"requests":{"memory":"4Gi"}}}}'
 oc start-build uralicmcp-rahti --follow
-oc set resources deployment/uralicmcp-rahti --limits=memory=4Gi --requests=memory=2Gi
+oc set resources deployment/uralicmcp-rahti --limits=memory=6Gi --requests=memory=4Gi
 ```
 
 ## TODO
