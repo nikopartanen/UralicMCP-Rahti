@@ -40,6 +40,13 @@ oc start-build uralicmcp-rahti --follow
 oc set resources deployment/uralicmcp-rahti --limits=memory=6Gi --requests=memory=4Gi
 ```
 
+## DONE
+
+- Add hfst for increased speed
+- Add more workers to prevent crashing
+   - `oc scale deployment/uralicmcp-rahti --replicas=2`
+   - `oc annotate route uralicmcp-rahti --overwrite haproxy.router.openshift.io/balance=source`
+
 ## TODO
 
 - How are we dealing with model updates? Can they be automatically updated every night if there have been changes?
