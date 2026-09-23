@@ -6,6 +6,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends nginx \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install --no-cache-dir "mcp<2" hfst
 RUN pip install --no-cache-dir "mcp<2" uralicNLP
 RUN python -m uralicNLP.download --languages kpv sms smn sme lut slh apu pad myv mdf fin
 RUN python -c "from uralicNLP import uralicApi; uralicApi.get_translation('кӧч', 'kpv')"
