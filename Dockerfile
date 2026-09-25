@@ -8,9 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends nginx \
 
 RUN pip install --no-cache-dir "mcp<2" hfst
 RUN pip install --no-cache-dir "mcp<2" uralicNLP
-RUN python -m uralicNLP.download --languages kpv sms smn sme lut slh apu pad myv mdf fin
-RUN python -c "from uralicNLP import uralicApi; uralicApi.get_translation('кӧч', 'kpv')"
-RUN python -c "from uralicNLP import uralicApi; uralicApi.get_translation('mon', 'sms')"
+RUN python -m uralicNLP.download --languages kpv koi sms smn sme sjd liv vro lut slh apu pad myv mdf fin dictionary
 
 COPY index.html /app/static/index.html
 COPY nginx.conf /etc/nginx/nginx.conf
