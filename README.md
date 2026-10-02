@@ -4,6 +4,8 @@ Test setup for [UralicMCP](https://github.com/mikahama/uralicNLP/wiki/UralicMCP)
 
 [https://uralicmcp-rahti.rahtiapp.fi/mcp](https://uralicmcp-rahti.rahtiapp.fi/mcp)
 
+The intended way to use this tool is to provide the URL above to the settings of the software in which you use the large language model. The results will vary depending on the language model you use, but through MCP the model will have access to the morphological analysers within the [GiellaLT infrastructure](https://github.com/giellalt). Not all languages are installed by default: if you want some specific language, you can open a pull request or issue, this is configured in the Dockerfile.
+
 **Deploy:**
 ```bash
 oc new-app https://github.com/nikopartanen/UralicMCP-Rahti --name=uralicmcp-rahti
